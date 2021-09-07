@@ -1,3 +1,3 @@
 # AnimationMelmmmm
 Screenshot
-![Gif-img](https://lh3.google.com/u/0/d/1Txer8lOgohxYPoEij_00eWYBFDxl0Rtv=w2560-h1297-iv1)
+![2021-09-07_16-35-31](https://user-images.githubusercontent.com/39834810/132322226-951ce2d2-ad34-4e95-ac8d-e8237ea55751.gif)
