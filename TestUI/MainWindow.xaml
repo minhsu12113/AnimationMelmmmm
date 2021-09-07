@@ -1,0 +1,75 @@
+﻿<Window x:Class="TestUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestUI" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="900" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ImageBrush x:Key="img1" ImageSource="Assets/img1.jpg" Stretch="UniformToFill" />
+        <ImageBrush x:Key="img2" ImageSource="Assets/img2.jpg" Stretch="UniformToFill" />
+        <ImageBrush x:Key="img3" ImageSource="Assets/img3.jpg" Stretch="UniformToFill" />
+        <ImageBrush x:Key="img4" ImageSource="Assets/img4.jpg" Stretch="UniformToFill" />
+        <ImageBrush x:Key="img5" ImageSource="Assets/img5.jpg" Stretch="UniformToFill" />
+
+        <Storyboard x:Key="OpacityStoryboardEnter" Storyboard.TargetProperty="Opacity">
+            <DoubleAnimation Duration="0:0:0.3" To="1">
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Key="OpacityStoryboardExit" Storyboard.TargetProperty="Opacity">
+            <DoubleAnimation Duration="0:0:0.3" To=".7">
+                <DoubleAnimation.EasingFunction>
+                    <PowerEase/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Style x:Key="BorderCommon" TargetType="Border">
+            <Setter Property="Opacity" Value="0.7"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="BorderBrush" Value="Silver"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Width" Value="65"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard Storyboard="{StaticResource OpacityStoryboardEnter}"/>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard Storyboard="{StaticResource OpacityStoryboardExit}"/>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Name="Boder_1" Grid.Column="0" Background="{StaticResource img1}" Style="{StaticResource BorderCommon}" MouseLeftButtonDown="Border_MouseLeftButtonDown" Width="500"/>
+        <Border Name="Boder_2" Grid.Column="1" Background="{StaticResource img2}" Style="{StaticResource BorderCommon}" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
+        <Border Name="Boder_3" Grid.Column="2" Background="{StaticResource img3}" Style="{StaticResource BorderCommon}" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
+        <Border Name="Boder_4" Grid.Column="3" Background="{StaticResource img4}" Style="{StaticResource BorderCommon}" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
+        <Border Name="Boder_5" Grid.Column="4" Background="{StaticResource img5}" Style="{StaticResource BorderCommon}" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
+                                
+    </Grid>
+</Window>
